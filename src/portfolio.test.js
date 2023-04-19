@@ -30,14 +30,12 @@ test('2.3 -- portfolio counts the unique number of stocks', () => {
 test('2.4 -- make a purchase of a new stock', () => {
     portfolio.makePurchase("RBLX", 5)
 
-
     expect(portfolio.stocks.get("RBLX")).toBe(5)
 })
 
 test('2.4 -- make an additional purchase of a stock you already have', () => {
     portfolio.makePurchase("RBLX", 5)
     portfolio.makePurchase("RBLX", 3)
-
 
     expect(portfolio.stocks.get("RBLX")).toBe(8)
 })
@@ -81,7 +79,6 @@ test('2.7 -- only owned stocks are in the portfolio', () => {
     expect(portfolio.stocks.keys()).not.toContain("RBLX")
 })
 
-test('2.8 -- it should not be possible to sell to many shares', () => {
-
+test('2.8 -- it should not be possible to sell too many shares', () => {
     expect(() => portfolio.makeSale("RBLX", 3)).toThrowError("ShareSaleException")
 })
